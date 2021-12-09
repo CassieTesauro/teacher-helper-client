@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import { TeacherHelper } from './components/TeacherHelper';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    < TeacherHelper/>
+    <BrowserRouter>
+      < TeacherHelper/>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
