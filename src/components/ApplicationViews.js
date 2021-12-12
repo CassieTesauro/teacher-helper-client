@@ -10,6 +10,9 @@ export const ApplicationViews = () => {
             <Route exact path="/">
                 <LandingPage />
             </Route>
+            <Route exact path="/students">
+                <LandingPage />
+            </Route>
 
         </>
     )
