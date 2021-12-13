@@ -1,6 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { LandingPage } from "./LandingPage"
+import { StudentForm } from "./students/StudentForm"
+import { StudentList } from "./students/StudentList"
 
 
 
@@ -11,7 +13,10 @@ export const ApplicationViews = () => {
                 <LandingPage />
             </Route>
             <Route exact path="/students">
-                <LandingPage />
+                <StudentList />
+            </Route>
+            <Route exact path="/students/new">
+                <StudentForm />
             </Route>
 
         </>
