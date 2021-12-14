@@ -1,18 +1,33 @@
 import React, { useState, useEffect } from "react"
-import { useHistory } from 'react-router-dom'
-import { createStudent } from './StudentManager.js'
+import { useHistory, useParams } from 'react-router-dom'
+import { createStudent, getSingleStudent, editStudent, deleteStudent } from './StudentManager.js'
 
 export const StudentForm = () => {
-//STATE VARIABLE FOR NEW STUDENT
+    
     const [currentStudent, setCurrentStudent] = useState({
         name: ""
     })
    
-//WILL GET THE UPDATED STUDENT STATE WHEN PATH CHANGES TO ROSTER
     const history = useHistory()   
+
+     /*~~~~~~~CURRENT STUDENT DATA POPULATED IN FORM VIEW~~~~~~~~~~*/
+    const { studentId } = useParams()
+    
+    useEffect(() => {
+        if (studentId) {
+            getSingleStudent(studentId).then((singleStudentData) => {
+                setCurrentStudent(singleStudentData)
+            }
+            )
+        }
+    },
+        [studentId])
+
+    
 
 
     /*~~~~~~~INVOKED IN FORM.  USER INPUT GETS STORED ABOVE WITH USESTATE HOOKS ~~~~~~~~~~*/
+
     const changeStudentPropertyState = (event) => {
         const newStudent = Object.assign({}, currentStudent)
         newStudent[event.target.name] = event.target.value
@@ -20,11 +35,13 @@ export const StudentForm = () => {
     }
 
 
+
+
 /*~~~~~~~FORM STARTS HERE ~~~~~~~~~~*/
 
     return (
         <>
-            <h2 className="form-group">New Student</h2>
+            <h2 className="form-group">{studentId ? 'Edit Student': 'New Student'}</h2>
 
             <form className="studentForm newStudentForm">
 
@@ -37,30 +54,45 @@ export const StudentForm = () => {
                         />
                     </div>
                 </fieldset>
+                
+               
 
-                <button type="submit"
-                onClick={evt => {
-                    evt.preventDefault()  //Prevent form from being submitted 
-
-                    const student = {
-                        name: currentStudent.name
-                    }
-
-                    // Sending POST request to API then rerouting user to studentlist view
-                    createStudent(student)
-                        .then(() => history.push("/students"))
-                }}
-                className="btn btn-primary">Add to Roster</button>
 
             </form>
+
+            <button onClick={e => {
+            e.preventDefault()
+            studentId ? editStudent(currentStudent)
+            .then(() => history.push('/students')) 
+            : createStudent(currentStudent)
+            .then(() => history.push('/students'))}}>Save Student</button>
+            
+            {studentId ?
+                    <button 
+                    onClick={e => 
+                        {
+                            deleteStudent(currentStudent)
+                            .then(() => history.push('/students'))
+                        }
+                    }
+                    >Delete Student </button> : ""
+            }
+            
+
+
+            <button onClick={evt => {
+                    evt.preventDefault()
+                    history.push("/students")}
+                } 
+                className="btn btn-cancel delete-student">Back to Roster</button>
                 
         </>
     )
 
-//save button here
+
+            
 
 
-//cancel button here
 
 
 
