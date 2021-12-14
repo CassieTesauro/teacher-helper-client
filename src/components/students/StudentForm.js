@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
-import { createStudent, getSingleStudent, editStudent, deleteStudent } from './StudentManager.js'
+import { createStudent, getSingleStudent, editStudent, deleteStudent, deleteWarning } from './StudentManager.js'
 
 export const StudentForm = () => {
     
@@ -67,17 +67,21 @@ export const StudentForm = () => {
             : createStudent(currentStudent)
             .then(() => history.push('/students'))}}>Save Student</button>
             
+
             {studentId ?
                     <button 
                     onClick={e => 
-                        {
-                            deleteStudent(currentStudent)
-                            .then(() => history.push('/students'))
+                        {  
+                            deleteWarning()
+                            if (deleteWarning) {
+                                deleteStudent(currentStudent)
+                                .then(() => history.push('/students'))
+                            }
+                           
                         }
                     }
                     >Delete Student </button> : ""
             }
-            
 
 
             <button onClick={evt => {

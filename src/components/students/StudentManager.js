@@ -51,3 +51,7 @@ export const deleteStudent = (student) => {
     })
         .then(getStudents)
 }
+
+export const deleteWarning = () => {
+    window.confirm("Delete Student?\nThis cannot be undone.")
+}
