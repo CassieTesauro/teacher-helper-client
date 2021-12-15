@@ -2,12 +2,13 @@ import { getDefaultNormalizer } from "@testing-library/dom"
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 import { createMeeting, getSingleMeeting, editMeeting, deleteMeeting, deleteWarning } from './MeetingManager.js'
+import { getStudents } from "../students/StudentManager.js"//TESTING: CHECKLIST
 
 export const MeetingForm = () => {
     
     const history = useHistory()
     const [students, setStudents] = useState([])
-    const [currentMeeting, setCurrentMeeting] = useState({})
+
     const { meetingId } = useParams()
 
     /*~~~~~~~CURRENT MEETING DATA POPULATED IN FORM VIEW~~~~~~~~~~*/
@@ -31,6 +32,44 @@ export const MeetingForm = () => {
 
 
 
+    /*~~~~~~~TESTING: CHECKLIST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    //get students
+    useEffect(() => {
+        getStudents().then(data => setStudents(data))
+    }, [])
+
+    //get checked state
+    const [checkedState, setCheckedState] = React.useState(
+        new Array(students.length).fill(false)
+    );
+
+    //for checkbox code
+    const handleOnChange = (position) => {
+        const copyOfCheckedState = [
+            ...checkedState
+        ]
+        const valued = parseInt(position.target.value)
+        if ( checkedState.includes(valued)) {
+            copyOfCheckedState.splice(checkedState.indexOf(valued), 1)
+        } else {
+            copyOfCheckedState.push(valued)
+        }
+
+        setCheckedState(copyOfCheckedState);
+    }
+
+    const [currentMeeting, setCurrentMeeting] = useState({
+        name: "",
+        description: "",
+        date: "",
+        time: "",
+        learners: checkedState   
+    })
+
+    /*~~~~~~~END TESTING: CHECKLIST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+
     /*~~~~~~~FORM STARTS HERE ~~~~~~~~~~*/
 
     return (
@@ -44,16 +83,6 @@ export const MeetingForm = () => {
                         <label htmlFor="meeting-name">Name: </label>
                         <input type="text" name="name" required autoFocus className="form-control"
                             value={currentMeeting.name}
-                            onChange={changeMeetingPropertyState}
-                        />
-                    </div>
-                </fieldset> 
-
-                <fieldset>
-                    <div className="form-group large">
-                        <label htmlFor="meeting-description">Description: </label>
-                        <input type="text" name="description" required autoFocus className="form-control"
-                            value={currentMeeting.description}
                             onChange={changeMeetingPropertyState}
                         />
                     </div>
@@ -88,6 +117,33 @@ export const MeetingForm = () => {
                         />
                     </div>
                 </fieldset> 
+
+                {/*~~~~~~~TESTING: CHECKLIST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/}
+                <h3>Participating Students:</h3>
+                        <ul className="participants-list">
+                            {students.map(({ name, id }, index) => {
+                                return (
+                                    <li key={index}>
+                                        <div className="participants-list-item">
+                                            <div className="left-section">
+                                                <input
+                                                    type="checkbox"
+                                                    id={`custom-checkbox-${index}`}
+                                                    name={name}
+                                                    value={id}
+                                                    onChange={(event) => handleOnChange(event)}
+                                                />
+                                                <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                {/*~~~~~~~END TESTING: CHECKLIST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/}
+
+              
+
                 
                
 
@@ -96,9 +152,14 @@ export const MeetingForm = () => {
 
             <button onClick={e => {
             e.preventDefault()
-            meetingId ? editMeeting(currentMeeting)
+            //add the checked state to current meeting here
+            const completeMeetingData = {
+                ...currentMeeting,
+                learners: checkedState
+            }
+            meetingId ? editMeeting(completeMeetingData)
             .then(() => history.push('/meetings')) 
-            : createMeeting(currentMeeting)
+            : createMeeting(completeMeetingData)
             .then(() => history.push('/meetings'))}}>Save Meeting</button>
             
 
