@@ -16,6 +16,10 @@ export const MeetingForm = () => {
         if (meetingId) {
             getSingleMeeting(meetingId).then((singleMeetingData) => {
                 setCurrentMeeting(singleMeetingData)
+                const checkForStudent = singleMeetingData.learners.map(learner => {
+                    return learner.id})
+                setCheckedState(checkForStudent) //now ids are in checked state
+              
             })
         }   
     },
@@ -57,6 +61,15 @@ export const MeetingForm = () => {
 
         setCheckedState(copyOfCheckedState);
     }
+
+//     //TESTING WED PM
+//    const [learners, setLearners] = useState({})
+//    useEffect(
+//        () => {
+//            return fetch(`http://localhost:8000/meetings/${meetingId}?_`)
+//        }
+//    )
+
 
     const [currentMeeting, setCurrentMeeting] = useState({
         name: "",
@@ -122,11 +135,16 @@ export const MeetingForm = () => {
                 <h3>Participating Students:</h3>
                         <ul className="participants-list">
                             {students.map(({ name, id }, index) => {
+                              // {...currentMeeting.learners?.id === id}?//WED TEST
                                 return (
                                     <li key={index}>
                                         <div className="participants-list-item">
                                             <div className="left-section">
                                                 <input
+                                                //check here-  if the id is stored in learners, check the box
+                                                    //if learners.id = id, then checked = true
+                                                 
+                                                    checked = {checkedState.includes(id)} //includes returns t/f so no ternary
                                                     type="checkbox"
                                                     id={`custom-checkbox-${index}`}
                                                     name={name}
