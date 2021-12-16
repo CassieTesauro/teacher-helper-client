@@ -2,7 +2,7 @@ import { getDefaultNormalizer } from "@testing-library/dom"
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 import { createMeeting, getSingleMeeting, editMeeting, deleteMeeting, deleteWarning } from './MeetingManager.js'
-import { getStudents } from "../students/StudentManager.js"//TESTING: CHECKLIST
+import { getStudents } from "../students/StudentManager.js"
 
 export const MeetingForm = () => {
     
@@ -35,8 +35,6 @@ export const MeetingForm = () => {
     }
 
 
-
-    /*~~~~~~~TESTING: CHECKLIST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     //get students
     useEffect(() => {
         getStudents().then(data => setStudents(data))
@@ -47,7 +45,7 @@ export const MeetingForm = () => {
         new Array(students.length).fill(false)
     );
 
-    //for checkbox code
+    //for checkboxes 
     const handleOnChange = (position) => {
         const copyOfCheckedState = [
             ...checkedState
@@ -62,14 +60,6 @@ export const MeetingForm = () => {
         setCheckedState(copyOfCheckedState);
     }
 
-//     //TESTING WED PM
-//    const [learners, setLearners] = useState({})
-//    useEffect(
-//        () => {
-//            return fetch(`http://localhost:8000/meetings/${meetingId}?_`)
-//        }
-//    )
-
 
     const [currentMeeting, setCurrentMeeting] = useState({
         name: "",
@@ -78,9 +68,6 @@ export const MeetingForm = () => {
         time: "",
         learners: checkedState   
     })
-
-    /*~~~~~~~END TESTING: CHECKLIST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
 
 
     /*~~~~~~~FORM STARTS HERE ~~~~~~~~~~*/
@@ -131,20 +118,15 @@ export const MeetingForm = () => {
                     </div>
                 </fieldset> 
 
-                {/*~~~~~~~TESTING: CHECKLIST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/}
                 <h3>Participating Students:</h3>
                         <ul className="participants-list">
                             {students.map(({ name, id }, index) => {
-                              // {...currentMeeting.learners?.id === id}?//WED TEST
                                 return (
                                     <li key={index}>
                                         <div className="participants-list-item">
                                             <div className="left-section">
                                                 <input
-                                                //check here-  if the id is stored in learners, check the box
-                                                    //if learners.id = id, then checked = true
-                                                 
-                                                    checked = {checkedState.includes(id)} //includes returns t/f so no ternary
+                                                    checked = {checkedState.includes(id)} //includes return t/f so no ternary necessary
                                                     type="checkbox"
                                                     id={`custom-checkbox-${index}`}
                                                     name={name}
@@ -158,13 +140,6 @@ export const MeetingForm = () => {
                                 );
                             })}
                         </ul>
-                {/*~~~~~~~END TESTING: CHECKLIST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/}
-
-              
-
-                
-               
-
 
             </form>
 

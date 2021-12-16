@@ -9,7 +9,7 @@ export const NavBar = () => {
                 <Link className="navbar__link" to="/">Home</Link>
             </li>
             <li className="navbar__item active two">
-                <Link className="navbar__link" to="/students/">Roster</Link> {/* /:userId  AFTER /STUDENTS part of Sunday night test */}
+                <Link className="navbar__link" to="/students/">Roster</Link> 
             </li>
             <li className="navbar__item active three">
                 <Link className="navbar__link" to="/meetings">Meetings</Link>
