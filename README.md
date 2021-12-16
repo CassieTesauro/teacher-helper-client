@@ -57,12 +57,12 @@ https://www.loom.com/share/6d03dddb31a649959c1a3174d9770de1 -->
 <li><a href="./src/images/thwireframe.pdf" target="_blank" >Download Wireframe PDF</a></li>
 </p>
 <p float="left">
-    <img src="./src/images/Wireframe.png" alt="Homepage" width="800" height="400">
+    <img src="./src/images/wireframe.png" alt="Wireframe" width="800" height="400">
 </p>
 
 # ERD
 <p float="left">
-    <img src="./src/images/thERD.png" alt="Homepage" width="800" height="400">
+    <img src="./src/images/thERD.png" alt="ERD" width="800" height="400">
 </p>
 
 # Technologies Used
