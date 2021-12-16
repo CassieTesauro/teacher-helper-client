@@ -54,7 +54,7 @@ https://www.loom.com/share/6d03dddb31a649959c1a3174d9770de1 -->
 
 # Wireframe
 <p>
-<li><a href="./src/images/thwireframe.pdf" target="_blank" >Download Wireframe PDF</a></li>
+<li><a href="./src/images/thwireframe.pdf" target="_blank" >Larger Wireframe PDF View</a></li>
 </p>
 <p float="left">
     <img src="./src/images/wireframe.png" alt="Wireframe" width="800" height="400">
