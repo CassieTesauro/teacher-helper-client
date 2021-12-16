@@ -187,8 +187,8 @@ export const MeetingForm = () => {
                         {  
                             deleteWarning()
                             if (deleteWarning) {
-                                deleteWarning(currentMeeting)
-                                .then(() => history.push('/meeting'))
+                                deleteMeeting(currentMeeting)
+                                .then(() => history.push('/meetings'))
                             }
                            
                         }

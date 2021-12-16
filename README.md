@@ -1,71 +1,69 @@
-# Getting Started with Create React App
+<!-- <p float="left">
+    <img src="./src/images/mainheadercc.png" alt="Homepage" width="800" height="200">
+</p> -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Overview
+Every day, teachers pull small groups of students daily to work on different academic and behavioral skills.  The topics and participants of these groups can change day to day as needed.  Currently, most teachers use paper-filled binders to organize these sessions. Due to the ever-changing group members and taught skills, paper and pencil management is very inefficient. With Teacher Helper, teachers can easily view and change their small group instruction plans.  Teacher Helper is the second in a series of apps meant to save teachers time and help them stay organized. This CRUD app is designed to be easy to navigate for teachers with limited technology experience.  After logging in, teachers can view and update their student roster as well as create, view, update, and delete small group meetings from their schedule.
 
-## Available Scripts
+# Features
+<ul>
+    <li>User authentication</li>
+    <li>New user registration</li>
+    <li>easy to navigate design</li>
+    <li>Ability to create, read, update, and delete students from a roster</li>
+    <li>Ability to create, read, update, and delete small group meetings from a meetings list</li>
+</ul>
 
-In the project directory, you can run:
+# User Stories
+<ul>
+    <li>As a user, I should be able to log in and view my current roster.</li>
+    <li>As a user, I should be able to add a new student to my roster.</li>
+    <li>As a user, I should be able to select a student from the roster and edit their name.</li>
+    <li>As a user, I should be able to delete a student from my roster.</li>
+    <li>As a user, I should be able to log in and view my current meetings list.</li>
+    <li>As a user, I should be able add a new meeting to my meetings list.</li>
+    <li>As a user, I should be able to select a meeting from the meetings list to view the meeting details.</li>
+    <li>As a user, I should be able to delete past meetings.</li>
+</ul>
 
-### `npm start`
+<!-- # Images from Conference Cards
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Homepage
+<p>
+    <img src="./src/images/homepagecc.png" alt="Homepage" width="700" height="500">
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Roster Menu
+<p>
+    <img src="./src/images/rostercc.png" alt="Roster" width="700" height="500">
+</p>
 
-### `npm test`
+### View or Edit Current Student Card
+<p>
+    <img src="./src/images/currentstudentcc.png" alt="Current Student" width="700" height="900">
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Create New Student Card
+<p>
+    <img src="./src/images/newstudentcc.png" alt="New Student" width="700" height="900">
+</p>
 
-### `npm run build`
+# Watch Conference Cards in Action
+https://www.loom.com/share/6d03dddb31a649959c1a3174d9770de1 -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Wireframe
+<p>
+<li><a href="./src/images/thwireframe.pdf" target="_blank" >Download Wireframe PDF</a></li>
+</p>
+<p float="left">
+    <img src="./src/images/Wireframe.png" alt="Homepage" width="800" height="400">
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# ERD
+<p float="left">
+    <img src="./src/images/thERD.png" alt="Homepage" width="800" height="400">
+</p>
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# teacher-helper-client
+# Technologies Used
+HTML5 / CSS / JavaScript / React / SQL / Python / Django / Git
