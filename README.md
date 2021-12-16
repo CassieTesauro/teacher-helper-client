@@ -65,5 +65,12 @@ https://www.loom.com/share/6d03dddb31a649959c1a3174d9770de1 -->
 # Technologies Used
 HTML5 / CSS / JavaScript / React / SQL / Python / Django / Git
 
-# Directions to clone repo
+# Directions to Download 
+git clone git@github.com:CassieTesauro/teacher-helper-client.git
+
+# Link to Deployed App
+
+# LInk to sister App: 'Conference Cards'
+<a href="https://github.com/CassieTesauro/conference-cards" target="_blank">Conference Cards</a>
+
 
