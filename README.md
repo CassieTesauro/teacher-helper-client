@@ -66,7 +66,11 @@ https://www.loom.com/share/6d03dddb31a649959c1a3174d9770de1 -->
 HTML5 / CSS / JavaScript / React / SQL / Python / Django / Git
 
 # Directions to Download 
+```
 git clone git@github.com:CassieTesauro/teacher-helper-client.git
+npm install
+npm start
+```
 
 # Link to Deployed App
 
