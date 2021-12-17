@@ -45,8 +45,8 @@ export const Login = props => {
                     <h1>Teacher Helper</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email </label>
-                        <input ref={email} type="text" id="email" className="form-control" placeholder="teacher@email.com" required autoFocus />
+                        <label htmlFor="inputEmail"> Username </label>
+                        <input ref={email} type="text" id="email" className="form-control" placeholder="jdoe" required autoFocus />
                     </fieldset>
                     <fieldset>
                         <label htmlFor="inputPassword"> Password </label>
