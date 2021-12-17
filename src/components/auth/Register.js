@@ -23,7 +23,7 @@ export const Register = props => {
                 "email": email.current.value
             }
 
-            return fetch("https://teacher-helper-server.herokuapp.com/register", {
+            return fetch("http://127.0.0.1:8000/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
