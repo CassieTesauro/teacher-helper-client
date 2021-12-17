@@ -59,7 +59,7 @@ https://www.loom.com/share/6d03dddb31a649959c1a3174d9770de1 -->
 
 # ERD
 <p float="left">
-    <img src="./src/images/thERD.png" alt="ERD" width="800" height="400">
+    <img src="./src/images/thERDupdated.png" alt="ERD" width="800" height="400">
 </p>
 
 # Technologies Used
