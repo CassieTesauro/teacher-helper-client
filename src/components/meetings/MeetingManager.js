@@ -1,5 +1,5 @@
 export const getMeetings = () => {
-    return fetch("http://localhost:8000/meetings", {
+    return fetch("https://teacher-helper-server.herokuapp.com/meetings", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`
         }
@@ -8,7 +8,7 @@ export const getMeetings = () => {
 }
 
 export const createMeeting = (meeting) => {
-    return fetch("http://localhost:8000/meetings", { 
+    return fetch("https://teacher-helper-server.herokuapp.com/meetings", { 
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`,
@@ -20,7 +20,7 @@ export const createMeeting = (meeting) => {
 }
 
 export const getSingleMeeting = (meetingId) => {
-    return fetch(`http://localhost:8000/meetings/${meetingId}`, {
+    return fetch(`https://teacher-helper-server.herokuapp.com/meetings/${meetingId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`
         }
@@ -29,7 +29,7 @@ export const getSingleMeeting = (meetingId) => {
 }
 
 export const editMeeting = (meeting) => {
-    return fetch(`http://localhost:8000/meetings/${meeting.id}`, { 
+    return fetch(`https://teacher-helper-server.herokuapp.com/meetings/${meeting.id}`, { 
         method: "PUT",
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`,
@@ -42,7 +42,7 @@ export const editMeeting = (meeting) => {
 
 
 export const deleteMeeting = (meeting) => {
-    return fetch(`http://localhost:8000/meetings/${meeting.id}`, {
+    return fetch(`https://teacher-helper-server.herokuapp.com/meetings/${meeting.id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`

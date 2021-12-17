@@ -1,6 +1,6 @@
 
 export const getStudents = () => {
-    return fetch("http://localhost:8000/students", {
+    return fetch("https://teacher-helper-server.herokuapp.com/students", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`
         }
@@ -9,7 +9,7 @@ export const getStudents = () => {
 }
 
 export const createStudent = (student) => {
-    return fetch("http://localhost:8000/students", { 
+    return fetch("https://teacher-helper-server.herokuapp.com/students", { 
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`,
@@ -21,7 +21,7 @@ export const createStudent = (student) => {
 }
 
 export const getSingleStudent = (studentId) => {
-    return fetch(`http://localhost:8000/students/${studentId}`, {
+    return fetch(`https://teacher-helper-server.herokuapp.com/students/${studentId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`
         }
@@ -30,7 +30,7 @@ export const getSingleStudent = (studentId) => {
 }
 
 export const editStudent = (student) => {
-    return fetch(`http://localhost:8000/students/${student.id}`, { 
+    return fetch(`https://teacher-helper-server.herokuapp.com/students/${student.id}`, { 
         method: "PUT",
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`,
@@ -43,7 +43,7 @@ export const editStudent = (student) => {
 
 
 export const deleteStudent = (student) => {
-    return fetch(`http://localhost:8000/students/${student.id}`, {
+    return fetch(`https://teacher-helper-server.herokuapp.com/students/${student.id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("th_token")}`
